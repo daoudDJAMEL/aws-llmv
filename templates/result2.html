@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        .response-box {
+            width: 60%;
+            margin: 0 auto;
+            background-color: #f9f9f9;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        .image-box {
+            width: 60%;
+            margin: 0 auto;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .image-box img {
+            max-width: 100%;
+            display: block;
+            margin: 0 auto;
+            border-radius: 8px;
+        }
+        .upload-link {
+            display: block;
+            margin: 20px auto 0; /* Center and add space at top */
+            text-decoration: none;
+            color: #007BFF;
+            font-weight: bold;
+            font-size: 20px; /* Larger font size */
+            padding: 10px 20px; /* Larger padding */
+            border: 2px solid #007BFF;
+            border-radius: 5px;
+            background-color: #fff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .upload-link:hover {
+            background-color: #007BFF;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <a href="{{ url_for('index') }}" class="upload-link">Upload Another Image</a>
+
+    <h1>Model Response</h1>
+    <div class="response-box">
+        <p>{{ response }}</p>
+    </div>
+
+    <h2>Processed Image</h2>
+    <div class="image-box">
+        <img src="{{ url_for('output_file', filename=image_filename) }}" alt="Processed Image">
+    </div>
+</body>
+</html>
