@@ -6,5 +6,6 @@ transformers_stream_generator==0.0.4
 scipy
 torchvision
 pillow
+flask
 tensorboard
 matplotlib
