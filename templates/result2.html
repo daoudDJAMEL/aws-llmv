@@ -63,6 +63,11 @@
     </div>
 
     <h2>Processed Image</h2>
+     <div class="response-box">
+ <p>Height of box: {{ Height }} mm</p>
+    <p>Width of box: {{ Width }} mm</p>
+    <p>Space damage (Area): {{ space_damage }} mm*mm</p>
+    </div>
     <div class="image-box">
         <img src="{{ url_for('output_file', filename=image_filename) }}" alt="Processed Image">
     </div>

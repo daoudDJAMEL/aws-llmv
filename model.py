@@ -57,7 +57,7 @@ def process_image_new(image_path):
         file.write(f"Width: {real_width}\n")
         file.write(f"Height: {real_length}\n")
 
-    return response, output_image_path
+    return response, output_image_path,real_width,real_length
 
 def extract_bbox_dimensions(response):
     # Regex to find the bounding box coordinates
