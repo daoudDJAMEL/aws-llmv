@@ -1,4 +1,7 @@
+git
+opencv-python
 transformers==4.32.0
+flask
 accelerate
 tiktoken
 einops
@@ -6,6 +9,5 @@ transformers_stream_generator==0.0.4
 scipy
 torchvision
 pillow
-flask
 tensorboard
 matplotlib

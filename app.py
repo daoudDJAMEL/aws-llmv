@@ -1,6 +1,6 @@
 from flask import Flask, request, redirect, url_for, render_template, send_from_directory
 import os
-from t2 import process_image, process_image_t
+from model import process_image_new, process_image_t
 
 # Initialize Flask app
 app = Flask(__name__)
@@ -18,7 +18,7 @@ def process_uploaded_image(file):
     filename = file.filename
     filepath = os.path.join(app.config['UPLOAD_FOLDER'], filename)
     file.save(filepath)
-    response, output_image_path = process_image(filepath)  # Process the image and get response
+    response, output_image_path = process_image_new(filepath)  # Process the image and get response
     response = process_image_t(filepath)
     return response, os.path.basename(output_image_path)
 
