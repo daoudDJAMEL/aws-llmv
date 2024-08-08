@@ -3,7 +3,7 @@ from transformers.generation import GenerationConfig
 import torch
 import os
 from PIL import Image
-from cali import calib_pixel
+from calib import find_red_circle_radius
 import re
 
 
@@ -48,8 +48,8 @@ def process_image_new(image_path):
     width, height = extract_bbox_dimensions(response)
     print(f"Bounding box width: {width}, height: {height}")
 
-   # square_pixel_distance = calib_pixel()
-    square_pixel_distance = 123
+    square_pixel_distance = find_red_circle_radius(image_path)
+    #square_pixel_distance = 123
     real_width = compute_real_distance(width,square_pixel_distance)
     real_length = compute_real_distance(height,square_pixel_distance)
     
@@ -82,10 +82,10 @@ def compute_real_distance(pixel_distance, square_pixel_distance):
     Returns:
     float: Real-world distance corresponding to the pixel distance.
     """
-    square_length = 22
+    r_length = 13
 
     # Compute the real-world distance
-    real_distance = (pixel_distance * square_length) / square_pixel_distance
+    real_distance = (pixel_distance * r_length) / square_pixel_distance
     
     return real_distance
 
